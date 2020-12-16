@@ -17,7 +17,7 @@ const ServisDetail = () => {
 						<div className="row">
 							<div className="col-lg-9">
 								<div className="service-details-content">
-									<img src="https://via.placeholder.com/828x450" alt="" className="img-fluid">
+									<img src="https://via.placeholder.com/828x450" alt="" className="img-fluid" />
 									<p>Mobile app development is the act or process by which a mobile app is developed for mobile devices, such as personal digital assistants, enterprise digital assistants or mobile phones. These applications can be pre-installed on phones during manufacturing platforms, or delivered as web applications using server-side or client-side processing (e.g., JavaScript) to provide an "application-like" experience within a Web browser. Application software developers also must consider a long array of screen sizes, hardware specifications</p>
 									<h3>working process</h3>
 									<div className="row">
