@@ -1,12 +1,8 @@
 import sanityClient from "../lib/sanity.js";
-import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import Page from '../layout/Page'
 import query from '../queries/homepage'
 import Preloader from '../components/Preloader'
-
-const imageBuilder = imageUrlBuilder(sanityClient);
-const urlFor = source => imageBuilder.image(source);
 
 var ms = 0
 
