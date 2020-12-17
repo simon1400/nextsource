@@ -1,6 +1,20 @@
 import Link from 'next/link'
+import {useEffect, useState} from 'react'
+import sanityClient from "../lib/sanity.js";
+import query from '../queries/header'
 
 const Header = ({homepage}) => {
+
+  const [header, setHeader] = useState({})
+
+  useEffect(() => {
+    sanityClient.fetch(query).then(res => setHeader(res))
+  }, [])
+
+  if(!header?.contact){
+    return ''
+  }
+
   return(
     <header className={homepage ? 'pb' : 'black-bg'}>
 			<div className="container">
@@ -18,7 +32,7 @@ const Header = ({homepage}) => {
 						</ul>
 					</nav>
 					<div className="right-side-hd">
-						<span><a href="tel:+420731400076">(+420) 731 400 076</a></span>
+						<span><a href={`tel:${header.contact}`}>{header.contact}</a></span>
 						<a href="#" title="" className="btn-default">Get a quote</a>
 					</div>
 					<a href="#" title="" className="menu-btn">
