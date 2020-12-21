@@ -4,8 +4,9 @@ import query from '../../queries/services'
 import sanityClient from "../../lib/sanity.js";
 import BlockContent from "@sanity/block-content-to-react";
 
-export async function getServerSideProps() {
-  const services = await sanityClient.fetch(query)
+export async function getServerSideProps({locale}) {
+  const services = await sanityClient.fetch(query(locale))
+
   return {
     props: {
       services
@@ -20,7 +21,7 @@ const Services = ({services}) => {
   }
 
   return(
-    <Page title={services.meta.head} description={services.meta.description}>
+    <Page title={services.meta?.head} description={services.meta?.description}>
       <section className="sec-block3 pt-0">
   			<div className="fixed-bg bg7"></div>
   			<h2 className="page-number">01.</h2>

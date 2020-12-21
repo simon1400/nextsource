@@ -1,8 +1,1 @@
-export default `*[_type == "services"]{
-  title,
-  label,
-  content,
-  services,
-  tech,
-  meta
-}[0]`
+export default (lang) => `*[_type == "services"].${lang}[0]`

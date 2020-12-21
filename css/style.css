@@ -2408,6 +2408,14 @@ footer.gradient-bg2 {
 	margin-top: -7px;
 }
 
+.lang-btn{
+	margin-right: 20px!important;
+}
+
+.lang-btn:last-of-type{
+	margin-right: 50px!important;
+}
+
 
 /* WIDGET CATEGORIES */
 

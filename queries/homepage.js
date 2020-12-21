@@ -1,8 +1,3 @@
-export default `*[_type == "homepage"]{
-  title,
-  label,
-  content,
-  services,
-  why,
-  meta
-}[0...1]`
+export default (lang) => `*[_type == "homepage"]{
+  ${lang}
+}[0]`

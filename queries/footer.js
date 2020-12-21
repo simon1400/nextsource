@@ -1,4 +1,1 @@
-export default `*[_type == "global"]{
-  newsletter,
-  contact
-}[0...1]`
+export default (lang) => `*[_type == "global"].${lang}[0]`

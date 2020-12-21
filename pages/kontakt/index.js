@@ -4,8 +4,8 @@ import sanityClient from "../../lib/sanity.js";
 import Preloader from '../../components/Preloader'
 import BlockContent from "@sanity/block-content-to-react";
 
-export async function getServerSideProps() {
-  const global = await sanityClient.fetch(query)
+export async function getServerSideProps({locale}) {
+  const global = await sanityClient.fetch(query(locale))
   return {
     props: {
       contact: global.contact

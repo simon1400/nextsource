@@ -2,13 +2,15 @@ import Link from 'next/link'
 import {useEffect, useState} from 'react'
 import sanityClient from "../lib/sanity.js";
 import query from '../queries/header'
+import { useRouter } from 'next/router'
 
 const Header = ({homepage}) => {
 
   const [header, setHeader] = useState({})
+  const router = useRouter()
 
   useEffect(() => {
-    sanityClient.fetch(query).then(res => setHeader(res))
+    sanityClient.fetch(query(router.locale)).then(res => setHeader(res))
   }, [])
 
   if(!header?.contact){
@@ -33,6 +35,8 @@ const Header = ({homepage}) => {
 					</nav>
 					<div className="right-side-hd">
 						<span><a href={`tel:${header.contact}`}>{header.contact}</a></span>
+            <span className="lang-btn"><Link href="/" locale="cs"><a>CS</a></Link></span>
+            <span className="lang-btn"><Link href="/en" locale="en"><a>EN</a></Link></span>
 						<a href="#" title="" className="btn-default">Get a quote</a>
 					</div>
 					<a href="#" title="" className="menu-btn">

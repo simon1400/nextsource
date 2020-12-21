@@ -1,3 +1,3 @@
-export default `*[_type == "global"]{
-  contact
+export default (lang) => `*[_type == "global"]{
+  "contact": ${lang}.contact
 }[0]`;

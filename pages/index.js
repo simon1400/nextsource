@@ -6,12 +6,12 @@ import Preloader from '../components/Preloader'
 
 var ms = 0
 
-export async function getServerSideProps() {
-  const homepage = await sanityClient.fetch(query)
+export async function getServerSideProps({locale}) {
+  const homepage = await sanityClient.fetch(query(locale))
 
   return {
     props: {
-      homepage: homepage[0]
+      homepage: homepage[locale]
     }
   }
 }
@@ -49,7 +49,7 @@ const Homepage = ({homepage}) => {
   					<p className="bdy"><BlockContent blocks={homepage.services.content} /> </p>
   				</div>
   			</div>
-  			{!!homepage.services.services.length && <div className="services-section">
+  			{!!homepage.services.services?.length && <div className="services-section">
   				<div className="container">
   					<div className="row svs-carousel">
               {homepage.services.services.map((item, index) => {

@@ -2,14 +2,16 @@ import {useEffect, useState} from 'react'
 import sanityClient from "../lib/sanity.js";
 import query from '../queries/footer'
 import BlockContent from "@sanity/block-content-to-react";
+import { useRouter } from 'next/router'
 
 const Footer = () => {
 
   const [footer, setFooter] = useState({})
+  const router = useRouter()
 
   useEffect(() => {
-    sanityClient.fetch(query).then(res => {
-      setFooter(res[0])
+    sanityClient.fetch(query(router.locale)).then(res => {
+      setFooter(res)
     })
   }, [])
 
