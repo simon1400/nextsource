@@ -31,7 +31,7 @@ const Homepage = ({homepage}) => {
   						<div className="main-banner-text">
   							{homepage?.label && <span className="wow fadeInUp" data-wow-delay="300ms">{homepage.label}</span>}
   							<h1 className="wow fadeInUp" data-wow-delay="450ms">{homepage.title} <span></span></h1>
-  							<p className="wow fadeInUp" data-wow-delay="600ms"><BlockContent blocks={homepage.content} /></p>
+  							<div className="wow fadeInUp" data-wow-delay="600ms"><BlockContent blocks={homepage.content} /></div>
                 <a href="#" className="wow fadeInUp btn-default" data-wow-delay="900ms">Get a quote</a>
   						</div>
   					</div>
@@ -46,7 +46,7 @@ const Homepage = ({homepage}) => {
   				<div className="main-banner-text title-hd svs-header wow fadeInLeft" data-wow-delay="500ms">
   					{homepage.services?.label && <span>{homepage.services.label}</span>}
   					<h1>{homepage.services.title} <span></span></h1>
-  					<p className="bdy"><BlockContent blocks={homepage.services.content} /> </p>
+            <BlockContent className="bdy" blocks={homepage.services.content} />
   				</div>
   			</div>
   			{!!homepage.services.services?.length && <div className="services-section">
@@ -54,7 +54,7 @@ const Homepage = ({homepage}) => {
   					<div className="row svs-carousel">
               {homepage.services.services.map((item, index) => {
                 ms += 300
-                return(<div className="col-lg-3">
+                return(<div className="col-lg-3" key={index}>
     							<div className="service-col wow fadeIn" data-wow-delay={ms+'ms'}>
     								<div className="svs-icon">
     									<img src="images/icon5.svg" alt="" />

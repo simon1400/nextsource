@@ -1,8 +1,11 @@
 import {useEffect, useState} from 'react'
 import sanityClient from "../lib/sanity.js";
+import imageUrlBuilder from "@sanity/image-url";
 import query from '../queries/footer'
 import BlockContent from "@sanity/block-content-to-react";
 import { useRouter } from 'next/router'
+const imageBuilder = imageUrlBuilder(sanityClient);
+const urlFor = source => imageBuilder.image(source)
 
 const Footer = () => {
 
@@ -30,7 +33,7 @@ const Footer = () => {
 								<div className="main-banner-text title-hd">
 									<span>{footer.newsletter.label}</span>
 									<h1>{footer.newsletter.title} <span></span></h1>
-									<p className="bdy"><BlockContent blocks={footer.newsletter.content} /></p>
+									<BlockContent className="bdy" blocks={footer.newsletter.content} />
 								</div>
 								<form className="newsletter-form">
 									<input type="email" name="email" placeholder="Email" />
@@ -43,7 +46,7 @@ const Footer = () => {
 							<div className="testimonial-sec wow fadeInDown" data-wow-delay="300ms">
 								<div className="testi-head">
 									<div className="testi-thumb">
-										<img src="https://via.placeholder.com/70x70" alt="" />
+										<img src={urlFor(footer.newsletter.ceo.image).width(70).height(70).url()} alt="" />
 									</div>
 									<div className="testi-info">
 										<h3>{footer.newsletter.ceo.name}</h3>
