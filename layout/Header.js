@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react'
 import sanityClient from "../lib/sanity.js";
 import query from '../queries/header'
 import { useRouter } from 'next/router'
+import translate from '../data/translate'
 
 const Header = ({homepage}) => {
 
@@ -13,9 +14,9 @@ const Header = ({homepage}) => {
     sanityClient.fetch(query(router.locale)).then(res => setHeader(res))
   }, [])
 
-  if(!header?.contact){
-    return ''
-  }
+  // if(!header?.contact){
+  //   return ''
+  // }
 
   return(
     <header className={homepage ? 'pb' : 'black-bg'}>
@@ -28,16 +29,16 @@ const Header = ({homepage}) => {
 					</div>
 					<nav>
 						<ul>
-							<li><Link href="/"><a>Úvod</a></Link></li>
-							<li><Link href="/sluzby"><a>Služby</a></Link></li>
-							<li><Link href="/kontakt"><a>Kontakt</a></Link></li>
+							<li><Link href="/"><a>{translate.home[router.locale]}</a></Link></li>
+							<li><Link href="/sluzby"><a>{translate.service[router.locale]}</a></Link></li>
+							<li><Link href="/kontakt"><a>{translate.contact[router.locale]}</a></Link></li>
 						</ul>
 					</nav>
 					<div className="right-side-hd">
 						<span><a href={`tel:${header.contact}`}>{header.contact}</a></span>
             <span className="lang-btn"><Link href="/" locale="cs"><a>CS</a></Link></span>
             <span className="lang-btn"><Link href="/en" locale="en"><a>EN</a></Link></span>
-						<a href="#" title="" className="btn-default">Get a quote</a>
+						<Link href="/kontakt"><a title="" className="btn-default">{translate.quote[router.locale]}</a></Link>
 					</div>
 					<a href="#" title="" className="menu-btn">
 						<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">

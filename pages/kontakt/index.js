@@ -1,19 +1,51 @@
+import {useState} from 'react'
+
 import Page from '../../layout/Page'
 import query from '../../queries/contact'
 import sanityClient from "../../lib/sanity.js";
 import Preloader from '../../components/Preloader'
 import BlockContent from "@sanity/block-content-to-react";
+import translate from '../../data/translate'
+import { AxiosEMAILING } from "../../restClient";
 
 export async function getServerSideProps({locale}) {
   const global = await sanityClient.fetch(query(locale))
+
   return {
     props: {
-      contact: global.contact
+      contact: global.contact || {},
+      locale
     }
   }
 }
 
-const Contact = ({contact}) => {
+const Contact = ({contact, locale}) => {
+
+  const [emailData, setEmailData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+
+  const handleChange = e => {
+    setEmailData({
+      ...emailData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    AxiosEMAILING.post('/sendEmail', { templateName: '_WebContactForm', emailData }).then((res) => {
+      setEmailData({
+        name: '',
+        email: '',
+        message: ''
+      })
+      alert('Děkujeme, vaše zpráva byla odeslána')
+    })
+  }
 
   return(
     <Page title="Kontakt">
@@ -30,7 +62,7 @@ const Contact = ({contact}) => {
   										<img src="images/c-icon1.svg" alt="" />
   									</div>
   									<div className="contact-nfo">
-  										<h3>Address:</h3>
+  										<h3>{translate.address[locale]}</h3>
   										<p>{contact.address}</p>
   									</div>
   								</div>
@@ -39,7 +71,7 @@ const Contact = ({contact}) => {
   										<img src="images/c-icon2.svg" alt="" />
   									</div>
   									<div className="contact-nfo">
-  										<h3>Hit us up:</h3>
+  										<h3>{translate.hitUs[locale]}</h3>
   										<span>{contact.tel}</span>
   										<span>{contact.email}</span>
   									</div>
@@ -49,7 +81,7 @@ const Contact = ({contact}) => {
   										<img src="images/c-icon3.svg" alt="" />
   									</div>
   									<div className="contact-nfo">
-  										<h3>Working Schedule:</h3>
+  										<h3>{translate.workHours[locale]}</h3>
   										<p>{contact.workTime}</p>
   									</div>
   								</div>
@@ -63,27 +95,27 @@ const Contact = ({contact}) => {
   									<BlockContent blocks={contact.content} />
   								</div>
   								<div className="contact-form wow fadeInUp" data-wow-delay="300ms">
-  									<form method="post" action="#" id="contact-form">
+  									<form method="post" action="#" id="contact-form" onSubmit={e => onSubmit(e)}>
   	                                    <div className="response"></div>
   										<div className="row">
   											<div className="col-lg-6 col-md-6 col-sm-6">
   												<div className="input-field">
-  													<input type="text" name="name" className="name" placeholder="Name" />
+  													<input type="text" name="name" className="name" placeholder={translate.name[locale]} onChange={e => handleChange(e)} />
   												</div>
   											</div>
   											<div className="col-lg-6 col-md-6 col-sm-6">
   												<div className="input-field">
-  													<input type="text" name="email" className="email" placeholder="Email" />
+  													<input type="text" name="email" className="email" placeholder="Email" onChange={e => handleChange(e)} />
   												</div>
   											</div>
   											<div className="col-lg-12">
   												<div className="input-field">
-  													<textarea name="message" placeholder="Message"></textarea>
+  													<textarea name="message" placeholder={translate.message[locale]} onChange={e => handleChange(e)}></textarea>
   												</div>
   											</div>
   											<div className="col-lg-12">
   												<div className="input-field m-0">
-  													<button type="button" className="btn-default" id="submit">Send message</button>
+  													<button type="button" className="btn-default" id="submit">{translate.sendMessage[locale]}</button>
   												</div>
   											</div>
   										</div>

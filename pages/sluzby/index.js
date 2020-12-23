@@ -51,42 +51,15 @@ const Services = ({services}) => {
   			</div>}
   		</section>
 
-  		<section className="partners-section">
+  		{services.tech?.length && <section className="partners-section">
   			<div className="container">
   				<div className="partners-logo">
-  					<div className="partner-col">
-  						<img src="https://via.placeholder.com/125x77" alt="" />
-  					</div>
-  					<div className="partner-col">
-  						<img src="https://via.placeholder.com/126x56" alt="" />
-  					</div>
-  					<div className="partner-col">
-  						<img src="https://via.placeholder.com/67x91" alt="" />
-  					</div>
-  					<div className="partner-col">
-  						<img src="https://via.placeholder.com/96x96" alt="" />
-  					</div>
-  					<div className="partner-col">
-  						<img src="https://via.placeholder.com/103x65" alt="" />
-  					</div>
-  					<div className="partner-col">
-  						<img src="https://via.placeholder.com/125x77" alt="" />
-  					</div>
-  					<div className="partner-col">
-  						<img src="https://via.placeholder.com/126x56" alt="" />
-  					</div>
-  					<div className="partner-col">
-  						<img src="https://via.placeholder.com/67x91" alt="" />
-  					</div>
-  					<div className="partner-col">
-  						<img src="https://via.placeholder.com/96x96" alt="" />
-  					</div>
-  					<div className="partner-col">
-  						<img src="https://via.placeholder.com/103x65" alt="" />
-  					</div>
+  					{services.tech.map((item, index) => <div key={index} className="partner-col">
+  						<img src={urlFor(item).url()} alt="" />
+  					</div>)}
   				</div>
   			</div>
-  		</section>
+  		</section>}
 
     </Page>
   )
