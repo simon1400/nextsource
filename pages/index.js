@@ -5,6 +5,9 @@ import query from '../queries/homepage'
 import Preloader from '../components/Preloader'
 import translate from '../data/translate'
 import Link from 'next/link'
+import imageUrlBuilder from "@sanity/image-url";
+const imageBuilder = imageUrlBuilder(sanityClient);
+const urlFor = source => imageBuilder.image(source)
 
 var ms = 0
 
@@ -20,6 +23,8 @@ export async function getServerSideProps({locale}) {
 }
 
 const Homepage = ({homepage, locale}) => {
+
+  console.log(homepage);
 
   if(!homepage){
     return <Preloader />
@@ -80,36 +85,19 @@ const Homepage = ({homepage, locale}) => {
   			<h2 className="page-number">02</h2>
   			<div className="container">
   				<div className="row">
-  					{/*<div className="col-lg-5">
+  					{!!homepage.why.tech?.length && <div className="col-lg-5">
   						<div className="counter-section">
   							<div className="row">
-  								<div className="col-lg-6 col-md-6 col-sm-6 col-12">
+  								{homepage.why.tech.map((item, index) => <div className="col-lg-6 col-md-6 col-sm-6 col-12">
   									<div className="counter-div gradient-bg1 wow fadeInUp" data-wow-delay="300ms">
-  										<h2>{homepage.why.points.point1?.number} <sup>+</sup></h2>
-  										<span>{homepage.why.points.point1.description}</span>
+  										{/*<h2>{item?.logo}</h2>*/}
+                      <img className="techLogo" src={urlFor(item.logo).url()} alt={item.description} />
+  										<span>{item.description}</span>
   									</div>
-  								</div>
-  								<div className="col-lg-6 col-md-6 col-sm-6 col-12">
-  									<div className="counter-div scnd-dv gradient-bg1 wow fadeInUp" data-wow-delay="600ms">
-  										<h2>{homepage.why.points.point2?.number} <sup>+</sup></h2>
-  										<span>{homepage.why.points.point2.description}</span>
-  									</div>
-  								</div>
-  								<div className="col-lg-6 col-md-6 col-sm-6 col-12">
-  									<div className="counter-div gradient-bg2 wow fadeInUp" data-wow-delay="900ms">
-  										<h2>{homepage.why.points.point3?.number} <sup>+</sup></h2>
-  										<span>{homepage.why.points.point3.description}</span>
-  									</div>
-  								</div>
-  								<div className="col-lg-6 col-md-6 col-sm-6 col-12">
-  									<div className="counter-div frht gradient-bg2 wow fadeInUp" data-wow-delay="1200ms">
-  										<h2>{homepage.why.points.point4?.number} <sup>+</sup></h2>
-  										<span>{homepage.why.points.point4.description}</span>
-  									</div>
-  								</div>
+  								</div>)}
   							</div>
   						</div>
-  					</div>*/}
+  					</div>}
   					<div className="col-lg-7">
   						<div className="why-we-sec">
   							<div className="main-banner-text title-hd wow fadeInUp" data-wow-delay="300ms">

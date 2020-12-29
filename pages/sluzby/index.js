@@ -3,6 +3,9 @@ import Preloader from '../../components/Preloader'
 import query from '../../queries/services'
 import sanityClient from "../../lib/sanity.js";
 import BlockContent from "@sanity/block-content-to-react";
+import imageUrlBuilder from "@sanity/image-url";
+const imageBuilder = imageUrlBuilder(sanityClient);
+const urlFor = source => imageBuilder.image(source)
 
 export async function getServerSideProps({locale}) {
   const services = await sanityClient.fetch(query(locale))
