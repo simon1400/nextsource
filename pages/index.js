@@ -80,7 +80,7 @@ const Homepage = ({homepage, locale}) => {
   			<h2 className="page-number">02</h2>
   			<div className="container">
   				<div className="row">
-  					<div className="col-lg-5">
+  					{/*<div className="col-lg-5">
   						<div className="counter-section">
   							<div className="row">
   								<div className="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -109,7 +109,7 @@ const Homepage = ({homepage, locale}) => {
   								</div>
   							</div>
   						</div>
-  					</div>
+  					</div>*/}
   					<div className="col-lg-7">
   						<div className="why-we-sec">
   							<div className="main-banner-text title-hd wow fadeInUp" data-wow-delay="300ms">

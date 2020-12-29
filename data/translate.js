@@ -5,7 +5,7 @@ export default {
   },
   workHours: {
     en: 'Working hours:',
-    cs: 'Pracovni hodiny:'
+    cs: 'Pracovní doba:'
   },
   address: {
     en: 'Address:',
@@ -13,19 +13,19 @@ export default {
   },
   hitUs: {
     en: 'Hit us up:',
-    cs: 'Hit us up:'
+    cs: 'Ozvěte se nám:'
   },
   more: {
     en: 'Read more',
-    cs: 'Precist vice'
+    cs: 'Zobrazit více'
   },
   home: {
     en: 'Home',
-    cs: 'Uvod'
+    cs: 'Úvod'
   },
   service: {
     en: 'Services',
-    cs: 'Sluzby'
+    cs: 'Služby'
   },
   contact: {
     en: 'Contact',
@@ -33,11 +33,11 @@ export default {
   },
   name: {
     en: 'Name',
-    cs: 'Jmeno a prijmeni'
+    cs: 'Jméno a příjmení'
   },
   message: {
     en: 'Message',
-    cs: 'Popis'
+    cs: 'Zpráva'
   },
   sendMessage: {
     en: 'Send message',

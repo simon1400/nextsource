@@ -108,7 +108,7 @@ const Footer = () => {
 									</div>
 								</div>
 								<BlockContent blocks={footer.newsletter?.ceo?.content} />
-								<img src="images/sing.png" alt="" />
+								<img className="singImg" src="images/sing.png" alt="" />
 							</div>
 							<div className="clearfix"></div>
 						</div>

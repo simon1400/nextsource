@@ -904,6 +904,11 @@ header .menu-btn {
 	color: #A9AFC3;
 }
 
+.testimonial-sec .singImg{
+	max-width: 300px;
+	margin-top: 0;
+}
+
 
 /* ==================== CASES SECTION ====================== */
 

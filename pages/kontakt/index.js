@@ -129,7 +129,8 @@ const Contact = ({contact, locale}) => {
   		</section>
 
   		<section className="map-section">
-  			<iframe src="https://maps.google.com/maps?hl=en&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland+(Crope)&amp;ie=UTF8&amp;t=p&amp;z=7&amp;iwloc=B&amp;output=embed"></iframe>
+  			{/*<iframe src="https://maps.google.com/maps?hl=en&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland+(Crope)&amp;ie=UTF8&amp;t=p&amp;z=7&amp;iwloc=B&amp;output=embed"></iframe>*/}
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28424.57030392066!2d16.59163197782151!3d49.20134291654005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4712945cbcc37507%3A0x59ce96bb17f4208!2zTGlkaWNrw6EgMjAwNiwgNjAyIDAwIEJybm8tc3TFmWVkLcSMZXJuw6EgUG9sZSwg0KfQtdGF0LjRjw!5e0!3m2!1sru!2sit!4v1609249806297!5m2!1sru!2sit" frameBorder="0" style={{border: 0}} allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
   		</section>
     </Page>
   )
