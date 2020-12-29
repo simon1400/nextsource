@@ -24,8 +24,6 @@ export async function getServerSideProps({locale}) {
 
 const Homepage = ({homepage, locale}) => {
 
-  console.log(homepage);
-
   if(!homepage){
     return <Preloader />
   }
