@@ -2816,7 +2816,7 @@ body.no-scroll {
 
 .tech-section .tech-logo{
 	width: 100%;
-	max-width: 70px;
+	max-width: 80px;
 	margin-right: 15px;
 	margin-left: 15px;
 	margin-bottom: 15px;
@@ -2824,4 +2824,5 @@ body.no-scroll {
 
 .tech-section .tech-logo img{
 	filter: brightness(0) invert(1);
+	max-width: 100%;
 }
