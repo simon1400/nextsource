@@ -708,6 +708,12 @@ header .menu-btn {
 	text-align: center;
 }
 
+.service-col p{
+	color: #A9AFC3;
+	font-size: 18px;
+	line-height: 22px;
+}
+
 .service-col ul li{
 	color: #A9AFC3;
 	margin-bottom: 5px;

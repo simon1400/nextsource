@@ -44,9 +44,10 @@ const Services = ({services}) => {
   									<img src={urlFor(item.icon).url()} alt="" />
   								</div>
   								<h3>{item.title}</h3>
-  								{item.categories?.length && <ul>
+  								{/*{item.categories?.length && <ul>
                     {item.categories.map((itemCat, indexCat) => <li key={indexCat}>{itemCat.category}</li>)}
-                  </ul>}
+                  </ul>}*/}
+                  <p>{item.content}</p>
   							</div>
   						</div>)}
   					</div>
@@ -54,11 +55,22 @@ const Services = ({services}) => {
   			</div>}
   		</section>
 
-  		{services.tech?.length && <section className="tech-section container">
-					{services.tech.map((item, index) => <div key={index} className="tech-logo">
-						<img src={urlFor(item).url()} alt="" />
-					</div>)}
-  		</section>}
+  		<section className="sec-block3">
+
+  			<h2 className="page-number">02.</h2>
+        <div className="container">
+  				<div className="main-banner-text title-hd max-width-100">
+  					<span>{services.techSec.label}</span>
+  					<h1>{services.techSec.title} <span></span></h1>
+  					<BlockContent blocks={services.techSec.content} />
+  				</div>
+  			</div>
+        {services.techSec.tech?.length && <div className="tech-section container">
+          {services.techSec.tech.map((item, index) => <div key={index} className="tech-logo">
+            <img src={urlFor(item).url()} alt="" />
+          </div>)}
+        </div>}
+  		</section>
 
     </Page>
   )
