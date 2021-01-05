@@ -1,4 +1,4 @@
-// import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Head from 'next/head'
 // import sanityClient from "../lib/sanity.js";
 import { useRouter } from 'next/router'
@@ -34,6 +34,11 @@ const Page = ({
 }) => {
 
   const router = useRouter()
+  const [menu, setMenu] = useState(false)
+
+  const handleMenu = (e) => {
+    setMenu(!menu)
+  }
 
   // useEffect(() => {
   //   sanityClient.fetch(query).then(res => {
@@ -88,10 +93,10 @@ const Page = ({
         {tags && <meta name="article:tag" content={tags} />}
 
       </Head>
-      <Sidebar />
+      {/*<Sidebar />*/}
       <div id={id} className="wrapper">
-        <Header homepage={homepage}/>
-        <ResponsiveMenu />
+        <Header homepage={homepage} handleMenu={handleMenu}/>
+        <ResponsiveMenu menu={menu} handleMenu={handleMenu} />
         {children}
         <Footer />
       </div>

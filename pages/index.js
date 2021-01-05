@@ -62,9 +62,9 @@ const Homepage = ({homepage, locale}) => {
                 ms += 300
                 return(<div className="col-lg-3" key={index}>
     							<div className="service-col wow fadeIn" data-wow-delay={ms+'ms'}>
-    								{/*<div className="svs-icon">
-    									<img src="images/icon5.svg" alt="" />
-    								</div>*/}
+    								<div className="svs-icon">
+    									<img src={urlFor(item.icon).url()} alt="" />
+    								</div>
     								<h3>{item.title}</h3>
                     <ul>
                       {item.categories.map((itemCat, indexCat) => <li key={indexCat}>{itemCat}</li>)}
@@ -86,7 +86,7 @@ const Homepage = ({homepage, locale}) => {
   					{!!homepage.why.tech?.length && <div className="col-lg-5">
   						<div className="counter-section">
   							<div className="row">
-  								{homepage.why.tech.map((item, index) => <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+  								{homepage.why.tech.map((item, index) => <div key={index} className="col-lg-6 col-md-6 col-sm-6 col-12">
   									<div className="counter-div gradient-bg1 wow fadeInUp" data-wow-delay="300ms">
   										{/*<h2>{item?.logo}</h2>*/}
                       <img className="techLogo" src={urlFor(item.logo).url()} alt={item.description} />
@@ -114,7 +114,6 @@ const Homepage = ({homepage, locale}) => {
   				</div>
   			</div>
   		</section>
-
     </Page>
   )
 }

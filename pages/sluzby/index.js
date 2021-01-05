@@ -41,7 +41,7 @@ const Services = ({services}) => {
   						{services.services.map((item, index) => <div key={index} className="col-lg-4 col-md-4 col-sm-6">
   							<div className="service-col">
   								<div className="svs-icon">
-  									<img src="images/icon5.svg" alt="" />
+  									<img src={urlFor(item.icon).url()} alt="" />
   								</div>
   								<h3>{item.title}</h3>
   								{item.categories?.length && <ul>
@@ -54,14 +54,10 @@ const Services = ({services}) => {
   			</div>}
   		</section>
 
-  		{services.tech?.length && <section className="partners-section">
-  			<div className="container">
-  				<div className="partners-logo">
-  					{services.tech.map((item, index) => <div key={index} className="partner-col">
-  						<img src={urlFor(item).url()} alt="" />
-  					</div>)}
-  				</div>
-  			</div>
+  		{services.tech?.length && <section className="tech-section container">
+					{services.tech.map((item, index) => <div key={index} className="tech-logo">
+						<img src={urlFor(item).url()} alt="" />
+					</div>)}
   		</section>}
 
     </Page>
