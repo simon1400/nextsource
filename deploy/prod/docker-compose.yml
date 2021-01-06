@@ -5,8 +5,6 @@ services:
     hostname: nextsource_prod
     restart: always
     image: registry.bezones.cz/nextsource:master
-    ports:
-      - "871:80"
     labels:
       - traefik.http.middlewares.nextsource_prod-https.redirectscheme.scheme=https
 
