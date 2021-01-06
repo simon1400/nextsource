@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nextsource_dev:
+    container_name: nextsource_dev
+    hostname: nextsource_dev
+    restart: always
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+      args:
+        - BUILD_TYPE=demo
+    ports:
+      - "870:80"
+    volumes:
+      - ./:/app
+    networks:
+      - nextsource
+networks:
+  nextsource:
