@@ -1,0 +1,28 @@
+version: '3'
+services:
+  nextsource_prod:
+    container_name: nextsource_prod
+    hostname: nextsource_prod
+    restart: always
+    image: registry.bezones.cz/nextsource:master
+    ports:
+      - "871:80"
+    labels:
+      - traefik.http.middlewares.nextsource_prod-https.redirectscheme.scheme=https
+
+      - traefik.enable=true
+      - traefik.backend=nextsource_prod
+      - traefik.http.routers.nextsource_prod-http.entrypoints=web
+      - traefik.http.routers.nextsource_prod-http.rule=Host(`nextsource.io`)
+      - traefik.http.routers.nextsource_prod-http.middlewares=nextsource_prod-https
+
+      - traefik.http.routers.nextsource_prod.entrypoints=websecure
+      - traefik.http.routers.nextsource_prod.rule=Host(`nextsource.io`)
+      - traefik.http.routers.nextsource_prod.tls.certresolver=letsencrypt
+      - traefik.http.services.nextsource_prod.loadbalancer.server.port=80
+    networks:
+      - traefik_bridge
+networks:
+  traefik_bridge:
+    external:
+      name: traefik_bridge
