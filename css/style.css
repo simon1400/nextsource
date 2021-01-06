@@ -444,6 +444,7 @@ header .menu-btn {
 	background-position: top right;
 }
 .banner-slider {
+	position: relative;
 	padding: 285px 0 163px;
 }
 .main-banner-text {
