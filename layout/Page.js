@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head'
 // import sanityClient from "../lib/sanity.js";
 import { useRouter } from 'next/router'
@@ -39,6 +39,10 @@ const Page = ({
   const handleMenu = (e) => {
     setMenu(!menu)
   }
+
+  useEffect(() => {
+    handleMenu(false)
+  }, [router.locale])
 
   // useEffect(() => {
   //   sanityClient.fetch(query).then(res => {
