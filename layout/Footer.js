@@ -62,12 +62,12 @@ const Footer = () => {
 					<div className="row">
             <div className="col-lg-6">
               <div className="contact-section-page">
-                <div className="main-banner-text title-hd wow fadeInUp" data-wow-delay="300ms">
+                <div className="main-banner-text title-hd">
                   <span>{footer.contact?.label}</span>
                   <h1>{footer.contact?.title} <span></span></h1>
                   <BlockContent blocks={footer.contact?.content} />
                 </div>
-                <div className="contact-form wow fadeInUp" data-wow-delay="300ms">
+                <div className="contact-form">
                   <form method="post" action="#" id="contact-form" onSubmit={e => onSubmit(e)}>
                                       <div className="response"></div>
                     <div className="row">
@@ -97,7 +97,7 @@ const Footer = () => {
               </div>
             </div>
 						<div className="col-lg-6">
-							<div className="testimonial-sec wow fadeInDown" data-wow-delay="300ms">
+							<div className="testimonial-sec">
 								<div className="testi-head">
 									<div className="testi-thumb">
 										<img src={urlFor(footer.newsletter?.ceo?.image).width(70).height(70).url()} alt="" />
@@ -117,25 +117,25 @@ const Footer = () => {
 				<div className="bottom-footer">
 					<div className="row">
 						<div className="col-lg-3 col-md-6 col-sm-6 col-12">
-							<div className="widget widget-about wow fadeInUp" data-wow-delay="300ms">
+							<div className="widget widget-about">
 								<img src="images/logo.png" alt="" />
 								<p>Copyright © 2020 Nextsource.</p>
 							</div>
 						</div>
 						<div className="col-lg-3 col-md-6 col-sm-6 col-12">
-							<div className="widget widget-para wow fadeInDown" data-wow-delay="600ms">
+							<div className="widget widget-para">
 								<h3 className="widget-title">{translate.workHours[router.locale]}</h3>
 								<p>{footer.contact?.workTime}</p>
 							</div>
 						</div>
 						<div className="col-lg-3 col-md-6 col-sm-6 col-12">
-							<div className="widget widget-para wow fadeInUp" data-wow-delay="900ms">
+							<div className="widget widget-para">
 								<h3 className="widget-title">{translate.address[router.locale]}</h3>
 								<p>{footer.contact?.address}</p>
 							</div>
 						</div>
 						<div className="col-lg-3 col-md-6 col-sm-6 col-12">
-							<div className="widget widget-para wow fadeInDown" data-wow-delay="1200ms">
+							<div className="widget widget-para">
 								<h3 className="widget-title">{translate.hitUs[router.locale]}</h3>
 								<span>{footer.contact?.tel}</span>
 								<p>{footer.contact?.email}</p>

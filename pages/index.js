@@ -35,10 +35,10 @@ const Homepage = ({homepage, locale}) => {
   				<div className="banner-slide">
   					<div className="container">
   						<div className="main-banner-text">
-  							{homepage?.label && <span className="wow fadeInUp" data-wow-delay="300ms">{homepage.label}</span>}
-  							<h1 className="wow fadeInUp" data-wow-delay="450ms">{homepage.title} <span></span></h1>
-  							<p className="wow fadeInUp" data-wow-delay="600ms"><BlockContent blocks={homepage.content} /></p>
-                <Link href="/kontakt"><a className="wow fadeInUp btn-default" data-wow-delay="900ms">{translate.quote[locale]}</a></Link>
+  							{homepage?.label && <span>{homepage.label}</span>}
+  							<h1>{homepage.title} <span></span></h1>
+  							<p><BlockContent blocks={homepage.content} /></p>
+                <Link href="/kontakt"><a className="btn-default">{translate.quote[locale]}</a></Link>
   						</div>
   					</div>
   				</div>
@@ -49,7 +49,7 @@ const Homepage = ({homepage, locale}) => {
   			<div className="fixed-bg bg3"></div>
   			<h2 className="page-number">01</h2>
   			<div className="container">
-  				<div className="main-banner-text title-hd svs-header wow fadeInLeft" data-wow-delay="500ms">
+  				<div className="main-banner-text title-hd ">
   					{homepage.services?.label && <span>{homepage.services.label}</span>}
   					<h1>{homepage.services.title} <span></span></h1>
             <BlockContent className="bdy" blocks={homepage.services.content} />
@@ -57,22 +57,19 @@ const Homepage = ({homepage, locale}) => {
   			</div>
   			{!!homepage.services?.services?.length && <div className="services-section">
   				<div className="container">
-  					<div className="row svs-carousel">
-              {homepage.services.services.map((item, index) => {
-                ms += 300
-                return(<div className="col-lg-3" key={index}>
-    							<div className="service-col wow fadeIn" data-wow-delay={ms+'ms'}>
-    								<div className="svs-icon">
-    									<img src={urlFor(item.icon).url()} alt="" />
-    								</div>
-    								<h3>{item.title}</h3>
-                    <ul>
-                      {item.categories.map((itemCat, indexCat) => <li key={indexCat}>{itemCat}</li>)}
-                    </ul>
-    								{/* <a href="services.html" title="" className="btn-default2">{translate.more[locale]}</a>*/}
-    							</div>
-    						</div>)
-              })}
+  					<div className="row">
+              {homepage.services.services.map((item, index) => <div className="col-lg-3" key={index}>
+                <div className="service-col">
+                  <div className="svs-icon">
+                    <img src={urlFor(item.icon).url()} alt="" />
+                  </div>
+                  <h3>{item.title}</h3>
+                  <ul>
+                    {item.categories.map((itemCat, indexCat) => <li key={indexCat}>{itemCat}</li>)}
+                  </ul>
+                  {/* <a href="services.html" title="" className="btn-default2">{translate.more[locale]}</a>*/}
+                </div>
+              </div>)}
   					</div>
   				</div>
   			</div>}
@@ -87,7 +84,7 @@ const Homepage = ({homepage, locale}) => {
   						<div className="counter-section">
   							<div className="row">
   								{homepage.why.tech.map((item, index) => <div key={index} className="col-lg-6 col-md-6 col-sm-6 col-12">
-  									<div className="counter-div gradient-bg1 wow fadeInUp" data-wow-delay="300ms">
+  									<div className="counter-div gradient-bg1">
   										{/*<h2>{item?.logo}</h2>*/}
                       <img className="techLogo" src={urlFor(item.logo).url()} alt={item.description} />
   										<span>{item.description}</span>
@@ -98,12 +95,12 @@ const Homepage = ({homepage, locale}) => {
   					</div>}
   					<div className="col-lg-7">
   						<div className="why-we-sec">
-  							<div className="main-banner-text title-hd wow fadeInUp" data-wow-delay="300ms">
+  							<div className="main-banner-text title-hd">
   								<span>{homepage.why.label}</span>
   								<h1>{homepage.why.title} <span></span></h1>
   								<BlockContent blocks={homepage.why.content} />
   							</div>
-  							<ul className="our-features-list wow fadeInDown" data-wow-delay="600ms">
+  							<ul className="our-features-list">
   								{homepage.why?.benefits?.length && homepage.why.benefits.map((item, index) => <li key={index}>
   									<h3>{item.title}</h3>
   									<p>{item.description}</p>
