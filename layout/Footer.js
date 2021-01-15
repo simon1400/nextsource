@@ -18,6 +18,7 @@ const Footer = () => {
       setFooter(res)
     })
   }, [])
+
   useEffect(() => {
     sanityClient.fetch(query(router.locale)).then(res => {
       setFooter(res)

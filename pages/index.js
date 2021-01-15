@@ -49,7 +49,7 @@ const Homepage = ({homepage, locale}) => {
   			<div className="fixed-bg bg3"></div>
   			<h2 className="page-number">01</h2>
   			<div className="container">
-  				<div className="main-banner-text title-hd ">
+  				<div className="main-banner-text title-hd">
   					{homepage.services?.label && <span>{homepage.services.label}</span>}
   					<h1>{homepage.services.title} <span></span></h1>
             <BlockContent className="bdy" blocks={homepage.services.content} />

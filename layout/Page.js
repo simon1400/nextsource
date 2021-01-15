@@ -37,11 +37,12 @@ const Page = ({
   const [menu, setMenu] = useState(false)
 
   const handleMenu = (e) => {
+    e.preventDefault()
     setMenu(!menu)
   }
 
   useEffect(() => {
-    handleMenu(false)
+    setMenu(false)
   }, [router.locale])
 
   // useEffect(() => {
@@ -99,7 +100,7 @@ const Page = ({
       </Head>
       {/*<Sidebar />*/}
       <div id={id} className="wrapper">
-        <Header homepage={homepage} handleMenu={handleMenu}/>
+        <Header homepage={homepage} handleMenu={handleMenu} />
         <ResponsiveMenu menu={menu} handleMenu={handleMenu} />
         {children}
         <Footer />
