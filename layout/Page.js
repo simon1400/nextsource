@@ -61,6 +61,13 @@ const Page = ({
   return (
     <>
       <Head>
+
+        <script dangerouslySetInnerHTML={{__html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KNNXC8T');`}} />
+
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
@@ -98,6 +105,7 @@ const Page = ({
         {tags && <meta name="article:tag" content={tags} />}
 
       </Head>
+
       {/*<Sidebar />*/}
       <div id={id} className="wrapper">
         <Header homepage={homepage} handleMenu={handleMenu} />
@@ -107,11 +115,8 @@ const Page = ({
       </div>
       <div className="clearfix"></div>
       <script src="/js/jquery.min.js"></script>
-      <script src="/js/popper.js"></script>
       <script src="/js/bootstrap.min.js"></script>
-      <script src="/js/plugin/slick.min.js"></script>
       <script src="/js/plugin/html5lightbox.js"></script>
-      <script src="/js/wow.min.js"></script>
       <script src="/js/script.js"></script>
     </>
   );
