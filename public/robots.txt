@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nextsource.io
+
+# Sitemaps
+Sitemap: https://nextsource.io/sitemap.xml
