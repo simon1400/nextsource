@@ -6,7 +6,7 @@ import sanityClient from "../../lib/sanity.js";
 import Preloader from '../../components/Preloader'
 import BlockContent from "@sanity/block-content-to-react";
 import translate from '../../data/translate'
-import { AxiosEMAILING } from "../../restClient";
+import { AxiosAPI } from "../../restClient";
 
 export async function getServerSideProps({locale}) {
   const global = await sanityClient.fetch(query(locale))
@@ -37,7 +37,7 @@ const Contact = ({contact, locale}) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    AxiosEMAILING.post('/sendEmail', { templateName: '_WebContactForm', emailData }).then((res) => {
+    AxiosAPI.post('/contact-mail-send', {from: "nextsource", emailData}).then((res) => {
       setEmailData({
         name: '',
         email: '',
@@ -115,7 +115,7 @@ const Contact = ({contact, locale}) => {
   											</div>
   											<div className="col-lg-12">
   												<div className="input-field m-0">
-  													<button type="button" className="btn-default" id="submit">{translate.sendMessage[locale]}</button>
+  													<button type="button" className="btn-default" onClick={e => onSubmit(e)} id="submit">{translate.sendMessage[locale]}</button>
   												</div>
   											</div>
   										</div>
